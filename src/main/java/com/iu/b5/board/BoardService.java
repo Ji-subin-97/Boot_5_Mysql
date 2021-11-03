@@ -20,5 +20,5 @@ public interface BoardService {
 	
 	// Select 글 리스트 조회
 	public List<BoardVO> getSelectList(Pager pager) throws Exception;
-	
+
 }

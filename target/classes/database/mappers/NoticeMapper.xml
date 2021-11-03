@@ -78,4 +78,29 @@
 			#{startRow}, #{perPage}
 	</select>
 	
+	<!-- Select 전체 갯수 구하기 -->
+	<select id="getTotalCount" parameterType="Pager" resultType="Long">
+		SELECT
+			COUNT(num)
+		FROM
+			notice
+		<if test="search != null">
+		WHERE
+			<choose>
+				<when test="kind == 'title'">
+					title
+				</when>
+				
+				<when test="kind == 'contents'">
+					contents
+				</when>
+				
+				<otherwise>
+					 writer
+				</otherwise>
+			</choose>
+		LIKE CONCAT('%', #{search}, '%')
+		</if>
+	</select>
+	
 </mapper>

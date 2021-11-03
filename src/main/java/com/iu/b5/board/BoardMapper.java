@@ -23,4 +23,7 @@ public interface BoardMapper {
 	
 	// Select 글 리스트 조회
 	public List<BoardVO> getSelectList(Pager pager) throws Exception;
+	
+	// 전체 글 갯수 조회
+	public Long getTotalCount(Pager pager) throws Exception;
 }

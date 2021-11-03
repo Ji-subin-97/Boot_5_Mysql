@@ -9,5 +9,7 @@
 		<typeAlias type="com.iu.b5.board.notice.NoticeVO" alias="NoticeVO"/>
 		<typeAlias type="com.iu.b5.board.qna.QnaVO" alias="QnaVO"/>
 		<typeAlias type="com.iu.b5.util.Pager" alias="Pager"/>
+		
+		<typeAlias type="java.lang.Long" alias="Long"/>
 	</typeAliases>
 </configuration>
