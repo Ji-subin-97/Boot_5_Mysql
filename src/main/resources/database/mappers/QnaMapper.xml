@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.iu.b5.board.qna.QnaMapper">
+
+	<!-- Insert 글쓰기 -->
+	<insert id="setInsert" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="num">
+		insert into qna (num, title, contents, writer, hit, regDate, ref, step, depth)
+		values (#{num}, #{title}, #{contents}, #{writer}, 0, sysdate(), 0, 0, 0)
+	</insert>
+	
+	<!-- Update 글수정 -->
+	<update id="setUpdate" parameterType="BoardVO">
+		UPDATE
+			qna
+		SET
+			title = #{title},
+			contents = #{contents}
+		WHERE
+			num = #{num}
+	</update>
+	
+	<!-- Update 조회수 수정 -->
+	<update id="setHitUpdate" parameterType="BoardVO">
+		UPDATE
+			qna
+		SET
+			hit = hit + 1
+		WHERE
+			num = #{num}
+	</update>
+	
+	<!-- Delete 글삭제 -->
+	<delete id="setDelete" parameterType="BoardVO">
+		DELETE
+		FROM
+			qna
+		WHERE
+			num = #{num}
+	</delete>
+	
+	<!-- Select 글 하나 조회 -->
+	<select id="getSelectOne" parameterType="BoardVO" resultType="QnaVO">
+		SELECT *
+		FROM
+			qna
+		WHERE
+			num = #{num}
+	</select>
+	
+	<!-- Select 글 리스트 조회 -->
+	<select id="getSelectList" resultType="QnaVO">
+		SELECT *
+		FROM
+			qna
+		ORDER BY
+			num DESC
+	</select>
+	
+</mapper>
