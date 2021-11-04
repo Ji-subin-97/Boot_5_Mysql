@@ -11,6 +11,14 @@
 		values (#{num}, #{title}, #{contents}, #{writer}, 0, sysdate())
 	</insert>
 	
+	<!-- Insert 파일 업로드 -->
+	<insert id="setFileInsert" parameterType="BoardFileVO">
+		INSERT INTO
+			noticeFiles
+		VALUES
+			(null, #{num}, #{fileName}, #{fileOriName})
+	</insert>
+	
 	<!-- Update 글수정 -->
 	<update id="setUpdate" parameterType="BoardVO">
 		UPDATE

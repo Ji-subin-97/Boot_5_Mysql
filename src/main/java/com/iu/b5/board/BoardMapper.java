@@ -9,6 +9,9 @@ public interface BoardMapper {
 	// Insert 글쓰기
 	public int setInsert(BoardVO boardVO) throws Exception;
 	
+	// Insert 파일 업로드
+	public int setFileInsert(BoardFileVO boardFileVO) throws Exception;
+	
 	// Update 글수정
 	public int setUpdate(BoardVO boardVO) throws Exception;
 	

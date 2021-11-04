@@ -17,10 +17,14 @@
 <body>
 
 	<h1>${board} Insert Page</h1>
-	<form action="./insert" method="post">
+	<form action="./insert" method="post" enctype="multipart/form-data">
 		Title : <input type="text" name="title">
 		Contents : <textarea rows="10" cols="30" name="contents"></textarea>
 		Writer : <input type="text" name="writer">
+		
+		<input type="file" name="files">
+		<input type="file" name="files">
+		
 		<input type="submit" value="Write">
 	</form>
 

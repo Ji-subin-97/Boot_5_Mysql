@@ -29,6 +29,10 @@ public class Pager {
 	private Integer perPage; // 한 페이지에 출력할 갯수
 	private Integer pn;		 // 페이지 번호
 	private Integer startRow;// limit의 시작 번호
+	private Long startNum;
+	private Long lastNum;
+	
+	private boolean lastCheck;
 	
 	/*---------계산---------*/
 	public void makeNum(Long totalCount) { // 104개
@@ -52,11 +56,18 @@ public class Pager {
 		}
 		
 		//5. curBlock을 이용해서 시작번호, 끝번호 구하기
-		Long startNum = (curBlock-1)*perBlock+1;
-		Long lastNum = curBlock*perBlock;
+		startNum = (curBlock-1)*perBlock+1;
+		lastNum = curBlock*perBlock;
 		
 		System.out.println("시작번호 :" + startNum);
 		System.out.println("끝 번호 :" + lastNum);
+		
+		if(curBlock == totalBlock) {
+			lastNum = totalPage;
+			lastCheck = true;
+		}else {
+			lastCheck = false;
+		}
 	}
 	
 	public void makeRow() {

@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.iu.b5.board.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.iu.b5.board.BoardFileVO" alias="BoardFileVO"/>
 		<typeAlias type="com.iu.b5.board.notice.NoticeVO" alias="NoticeVO"/>
 		<typeAlias type="com.iu.b5.board.qna.QnaVO" alias="QnaVO"/>
 		<typeAlias type="com.iu.b5.util.Pager" alias="Pager"/>
