@@ -50,13 +50,30 @@
 	</delete>
 	
 	<!-- Select 글 하나 조회 -->
-	<select id="getSelectOne" parameterType="BoardVO" resultType="BoardVO">
-		SELECT *
+	<select id="getSelectOne" parameterType="BoardVO" resultMap="selectResult">
+		SELECT N.*, NF.*
 		FROM
-			notice
+			notice N LEFT JOIN
+			noticeFiles NF
+		ON
+			(N.num = NF.num)
 		WHERE
-			num = #{num}
+			N.num = #{num}
 	</select>
+	
+	<resultMap type="NoticeVO" id="selectResult">
+		<id column="num" property="num"/>
+		<result column="title" property="title"/>
+		<result column="contents" property="contents"/>
+		<result column="writer" property="writer"/>
+		<result column="hit" property="hit"/>
+		<result column="regDate" property="regDate"/>
+		<collection property="fileList" javaType="List" ofType="BoardFileVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="fileOriName" property="fileOriName"/>
+		</collection>
+	</resultMap>
 	
 	<!-- Select 글 리스트 조회 -->
 	<select id="getSelectList" parameterType="Pager" resultType="BoardVO">

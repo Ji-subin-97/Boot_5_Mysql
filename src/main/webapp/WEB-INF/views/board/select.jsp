@@ -20,6 +20,11 @@
 	<h3>Writer : ${boardVO.writer}</h3>
 	<h3>Contents : ${boardVO.contents}</h3>
 	
+	<c:forEach items="${boardVO.fileList}" var="fileVO">
+		<a href="../upload/notice/${fileVO.fileName}">${fileVO.fileOriName}</a>
+	</c:forEach>
+	<br>
+	
 	<a href="./update?num=${boardVO.num}">Update</a>
 	<a href="./delete?num=${boardVO.num}">Delete</a>
 	
