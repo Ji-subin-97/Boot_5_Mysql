@@ -19,4 +19,14 @@
 			(null, #{member_id}, #{fileName}, #{fileOrilName})
 	</insert>
 	
+	<select id="setMemberLogin" parameterType="MemberVO" resultType="String">
+		SELECT
+			id
+		FROM
+			member
+		WHERE
+			id = #{id} AND
+			pw = #{pw}
+	</select>
+	
 </mapper>

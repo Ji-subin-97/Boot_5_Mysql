@@ -13,4 +13,6 @@ public interface MemberRepository {
 	//회원파일
 	public int setFileInsert(MemberFilesVO memberFilesVO) throws Exception;
 	
+	//로그인
+	public String setMemberLogin(MemberVO memberVO) throws Exception;
 }

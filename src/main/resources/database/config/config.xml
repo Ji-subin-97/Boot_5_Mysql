@@ -14,6 +14,7 @@
 		<typeAlias type="com.iu.b5.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.iu.b5.member.MemberFilesVO" alias="MemberFilesVO"/>
 		
+		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.util.List" alias="List"/>
 	</typeAliases>

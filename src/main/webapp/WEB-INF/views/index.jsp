@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -30,10 +31,23 @@
 
 <body>
 	<h1>Index Page</h1>
+	<c:if test="${not empty member}">
+		<h3>${member} 님 환영합니다.</h3>
+	</c:if>
+	<br>
 	<!-- img 안보임 -->
 	<img alt="img1" src="images/snowchees_slider1.jpg">
 	<br>
 	<a href="./member/memberJoin">회원가입</a>
+	<br>
+	<c:choose>
+		<c:when test="${not empty member}">
+			<a href="./member/memberLogOut">로그아웃</a>
+		</c:when>
+		<c:otherwise>
+			<a href="./member/memberLogin">로그인</a>
+		</c:otherwise>
+	</c:choose>
 	<br>
 	<a href="./notice/selectList">게시판</a>
 </body>

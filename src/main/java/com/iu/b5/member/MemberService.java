@@ -34,4 +34,9 @@ public class MemberService {
 		return result;
 	}
 	
+	public String setMemberLogin(MemberVO memberVO) throws Exception {
+		
+		return memberRepository.setMemberLogin(memberVO);
+	}
+	
 }
