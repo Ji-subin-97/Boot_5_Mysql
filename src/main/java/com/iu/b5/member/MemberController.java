@@ -60,6 +60,5 @@ public class MemberController {
 		
 		return "redirect:../";
 	}
-	
-	/*======================= Member List =======================*/
+
 }

@@ -2,6 +2,7 @@ package com.iu.b5.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.b5.util.FileManager;
@@ -15,7 +16,10 @@ public class MemberService {
 	@Autowired
 	private FileManager fileManager;
 	
+	@Transactional(rollbackFor = Exception.class)
 	public int addMemberJoin(MemberVO memberVO, MultipartFile file) throws Exception {
+		
+		//aop 관점지향언어
 		
 		int result = memberRepository.setInsert(memberVO);
 		
@@ -28,7 +32,10 @@ public class MemberService {
 			memberFilesVO.setFileName(fileName);
 			memberFilesVO.setFileOrilName(file.getOriginalFilename());
 			result = memberRepository.setFileInsert(memberFilesVO);
-		
+			
+			if(result == 0) {
+				throw new Exception();
+			}
 		}
 		
 		return result;

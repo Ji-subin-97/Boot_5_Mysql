@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iu.b5.admin.AdminRepository">
+	
+	<!-- ================================= Member ================================= -->
+	
+	<select id="getMemberList" resultMap="selectResult">
+		SELECT M.*, MF.*
+		FROM
+			member M LEFT JOIN memberFiles MF
+		ON
+			(M.id = MF.member_id)
+	</select>
+	
+	<resultMap type="MemberVO" id="selectResult">
+		<id column="id" property="id"/>
+		<result column="pw" property="pw"/>
+		<result column="name" property="name"/>
+		<result column="email" property="email"/>
+		<collection property="memberFileList" javaType="List" ofType="MemberFilesVO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="fileOrilName" property="fileOrilName"/>
+		</collection>
+	</resultMap>
+	
+</mapper>
