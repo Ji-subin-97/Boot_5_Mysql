@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iu.b5.member.MemberRepository">
+
+	<insert id="setInsert" parameterType="MemberVO">
+		INSERT INTO
+			member (id, pw, name, email)
+		VALUES
+			(#{id}, #{pw}, #{name}, #{email})
+	</insert>
+	
+	<insert id="setFileInsert" parameterType="MemberFilesVO">
+		INSERT INTO
+			memberFiles (fileNum, member_id, fileName, fileOrilName)
+		VALUES
+			(null, #{member_id}, #{fileName}, #{fileOrilName})
+	</insert>
+	
+</mapper>
