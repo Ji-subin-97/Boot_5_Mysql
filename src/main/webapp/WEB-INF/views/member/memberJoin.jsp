@@ -20,6 +20,10 @@
 		height: 30px;
 		margin-top: 10px;
 	}
+	label:after {
+		content: ' *';
+		color: red;
+	}
 	</style>
 </head>
 

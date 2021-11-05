@@ -19,13 +19,17 @@ public class MemberService {
 		
 		int result = memberRepository.setInsert(memberVO);
 		
-		String fileName = fileManager.getUseClassPathResource("/upload/member/" + memberVO.getId(), file);
+		if(!file.isEmpty()) {
+			
+			String fileName = fileManager.getUseClassPathResource("/upload/member/" + memberVO.getId(), file);
+			
+			MemberFilesVO memberFilesVO = new MemberFilesVO();
+			memberFilesVO.setMember_id(memberVO.getId());
+			memberFilesVO.setFileName(fileName);
+			memberFilesVO.setFileOrilName(file.getOriginalFilename());
+			result = memberRepository.setFileInsert(memberFilesVO);
 		
-		MemberFilesVO memberFilesVO = new MemberFilesVO();
-		memberFilesVO.setMember_id(memberVO.getId());
-		memberFilesVO.setFileName(fileName);
-		memberFilesVO.setFileOrilName(file.getOriginalFilename());
-		result = memberRepository.setFileInsert(memberFilesVO);
+		}
 		
 		return result;
 	}

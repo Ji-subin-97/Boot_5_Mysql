@@ -9,6 +9,23 @@
 	<title>Index Page</title>
 	<link rel="stylesheet" href="css/test.css">
 	
+	<script type="text/javascript">
+	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	let result = parseInt(getParameterByName('result'));
+	
+	if(result == 1){
+		alert("회원가입 완료!");
+	}
+	
+	</script>
+	
 </head>
 
 <body>
