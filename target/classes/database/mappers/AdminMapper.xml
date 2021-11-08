@@ -20,6 +20,7 @@
 		<result column="pw" property="pw"/>
 		<result column="name" property="name"/>
 		<result column="email" property="email"/>
+		<result column="role" property="role"/>
 		<collection property="memberFileList" javaType="List" ofType="MemberFilesVO">
 			<id column="fileNum" property="fileNum"/>
 			<result column="fileName" property="fileName"/>

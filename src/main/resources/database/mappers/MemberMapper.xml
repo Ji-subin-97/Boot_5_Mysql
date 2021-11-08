@@ -7,9 +7,9 @@
 
 	<insert id="setInsert" parameterType="MemberVO">
 		INSERT INTO
-			member (id, pw, name, email)
+			member (id, pw, name, email, role)
 		VALUES
-			(#{id}, #{pw}, #{name}, #{email})
+			(#{id}, #{pw}, #{name}, #{email}, 'M')
 	</insert>
 	
 	<insert id="setFileInsert" parameterType="MemberFilesVO">
