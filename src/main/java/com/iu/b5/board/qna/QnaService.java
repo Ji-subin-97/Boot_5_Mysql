@@ -43,6 +43,10 @@ public class QnaService implements BoardService{
 	@Override
 	public List<BoardVO> getSelectList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
+		pager.makeRow();
+		//1. 총글의 갯수 - DB에서 조회
+		Long totalCount = qnaMapper.getTotalCount(pager);
+		pager.makeNum(totalCount);
 		return qnaMapper.getSelectList(pager);
 	}
 	

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +18,32 @@
 <body>
 
 	<h1>${board} Insert Page</h1>
-	<form action="./insert" method="post" enctype="multipart/form-data">
+	
+	<form:form modelAttribute="boardVO" enctype="multipart/form-data">
+		<div>
+			<label for="title">Title</label><br>
+			<form:input path="title" id="title"/>
+		</div>
+		<div>
+			<label for="writer">Writer</label><br>
+			<form:input path="writer" id="writer"/>
+		</div>
+		<div>
+			<label for="contents">Contents</label><br>
+			<form:textarea path="contents" id="contents"/>
+		</div>
+		<div>
+			<label for="file">File</label><br>
+			<input type="file" name="files" id="file">
+			<input type="file" name="files">
+		</div>
+		<div>
+			<button type="submit">Write</button>
+		</div>
+	</form:form>
+		
+	
+	<%-- <form action="./insert" method="post" enctype="multipart/form-data">
 		Title : <input type="text" name="title">
 		Contents : <textarea rows="10" cols="30" name="contents"></textarea>
 		Writer : <input type="text" name="writer">
@@ -26,7 +52,7 @@
 		<input type="file" name="files">
 		
 		<input type="submit" value="Write">
-	</form>
+	</form> --%>
 
 </body>
 

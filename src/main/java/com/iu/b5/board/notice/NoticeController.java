@@ -28,7 +28,7 @@ public class NoticeController {
 	}
 	
 	@GetMapping("insert")
-	public String setInsert() throws Exception {
+	public String setInsert(@ModelAttribute BoardVO boardVO) throws Exception {
 		return "board/insert";
 	}
 	

@@ -51,12 +51,57 @@
 	</select>
 	
 	<!-- Select 글 리스트 조회 -->
-	<select id="getSelectList" resultType="QnaVO">
+	<select id="getSelectList" parameterType="Pager" resultType="QnaVO">
 		SELECT *
 		FROM
 			qna
+		<if test="search != null">
+		WHERE
+			<choose>
+				<when test="kind == 'title'">
+					title
+				</when>
+				
+				<when test="kind == 'contents'">
+					contents
+				</when>
+				
+				<otherwise>
+					 writer
+				</otherwise>
+			</choose>
+		LIKE CONCAT('%', #{search}, '%')
+		</if>
 		ORDER BY
 			num DESC
+		LIMIT
+			#{startRow}, #{perPage}
+	</select>
+	
+	
+	<!-- Select 전체 갯수 구하기 -->
+	<select id="getTotalCount" parameterType="Pager" resultType="Long">
+		SELECT
+			COUNT(num)
+		FROM
+			qna
+		<if test="search != null">
+		WHERE
+			<choose>
+				<when test="kind == 'title'">
+					title
+				</when>
+				
+				<when test="kind == 'contents'">
+					contents
+				</when>
+				
+				<otherwise>
+					 writer
+				</otherwise>
+			</choose>
+		LIKE CONCAT('%', #{search}, '%')
+		</if>
 	</select>
 	
 </mapper>

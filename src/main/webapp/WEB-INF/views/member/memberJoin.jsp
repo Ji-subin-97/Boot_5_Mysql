@@ -36,6 +36,8 @@
 		<input type="text" name="id" id="id" placeholder="ID입력">
 		<label for="pw">PW</label>
 		<input type="password" name="pw" id="pw" placeholder="PASSWORD입력">
+		<label for="pwCheck">PWCheck</label>
+		<input type="password" name="pwCheck" id="pwCheck" placeholder="PASSWORD 확인">
 		<label for="name">NAME</label>
 		<input type="text" name="name" id="name" placeholder="NAME입력">
 		<label for="email">EMAIL</label>
