@@ -11,6 +11,52 @@
 		values (#{num}, #{title}, #{contents}, #{writer}, 0, sysdate(), 0, 0, 0)
 	</insert>
 	
+	<insert id="setReplyInsert" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="num">
+		insert into qna (num, title, contents, writer, hit, regDate, ref, step, depth)
+		values (null, #{title}, #{contents}, #{writer}, 0, sysdate(), 
+		(select qna_ref.ref from (select ref from qna where num = #{num}) as qna_ref),
+		(select qna_step.step from (select step+1 from qna where num = #{num}) as qna_step), 
+		(select qna_depth.depth from (select depth+1 from qna where num = #{num}) as qna_depth))
+	</insert>
+	
+	<update id="setReplyUpdate" parameterType="BoardVO">
+		UPDATE
+			qna
+		SET
+			step = step + 1
+		WHERE
+			ref = 
+			(
+			SELECT 
+				qna_ref.ref
+			FROM
+				(
+					SELECT
+						ref
+					FROM
+						qna
+					WHERE
+						num = #{num}
+				) AS qna_ref
+			)
+			AND
+			step >
+			(
+			SELECT 
+				qna_step.step
+			FROM
+				(
+					SELECT
+						step
+					FROM
+						qna
+					WHERE
+						num = #{num}
+				) AS qna_step
+			)
+			
+	</update>
+	
 	<update id="setRefUpdate" parameterType="BoardVO">
 		UPDATE
 			qna

@@ -62,7 +62,7 @@
 				<td>${list.hit}</td>
 				<c:if test="${board eq 'qna'}">
 					<td>${list.ref}</td><td>${list.step}</td><td>${list.depth}</td>
-					<td><a href="./reply">답글달기</a></td>
+					<td><a href="./reply?num=${list.num}">답글달기</a></td>
 				</c:if>	
 			</tr>
 			</c:forEach>

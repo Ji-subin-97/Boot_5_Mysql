@@ -56,6 +56,18 @@ public class QnaController {
 		return "board/reply";
 	}
 	
+	@PostMapping
+	public String reply(@Valid BoardVO boardVO, BindingResult bindingResult, MultipartFile [] files) throws Exception{
+		
+		if(bindingResult.hasErrors()) {
+			return "board/reply";
+		}
+		
+		int result = qnaService.setReplyInsert(boardVO, files);
+		
+		return "redirect:./selectList";
+	}
+	
 	@GetMapping("update")
 	public String setUpdate(BoardVO boardVO, Model model) throws Exception {
 		boardVO = qnaService.getSelectOne(boardVO);

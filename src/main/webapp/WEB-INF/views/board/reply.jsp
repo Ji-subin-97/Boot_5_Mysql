@@ -20,6 +20,7 @@
 	<h1>${board} Reply Page</h1>
 	
 	<form:form modelAttribute="boardVO" enctype="multipart/form-data">
+		<form:hidden path="num"/>
 		<div>
 			<label for="title">Title</label><br>
 			<form:input path="title" id="title"/>
@@ -39,7 +40,7 @@
 			<input type="file" name="files">
 		</div>
 		<div>
-			<button type="submit">Write</button>
+			<button type="submit">Update</button>
 		</div>
 	</form:form>
 		

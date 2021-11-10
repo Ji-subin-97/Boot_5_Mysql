@@ -21,6 +21,13 @@ public class QnaService implements BoardService{
 	@Autowired
 	private FileManager fileManager;
 	
+	public int setReplyInsert(BoardVO boardVO, MultipartFile [] files) throws Exception{
+		int result = qnaMapper.setReplyUpdate(boardVO);
+		result = qnaMapper.setReplyInsert(boardVO);
+		
+		return result;
+	}
+	
 	@Override
 	public int setInsert(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		// TODO Auto-generated method stub
