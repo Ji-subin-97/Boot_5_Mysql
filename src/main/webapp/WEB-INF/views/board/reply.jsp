@@ -17,7 +17,7 @@
 
 <body>
 
-	<h1>${board} Insert Page</h1>
+	<h1>${board} Reply Page</h1>
 	
 	<form:form modelAttribute="boardVO" enctype="multipart/form-data">
 		<div>

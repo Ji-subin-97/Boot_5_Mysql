@@ -3,6 +3,7 @@ package com.iu.b5.board;
 import java.sql.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
@@ -11,7 +12,7 @@ import lombok.Data;
 public class BoardVO {
 	
 	private Integer num;
-	@NotEmpty
+	@NotBlank
 	private String title;
 	private String contents;
 	private String writer;

@@ -47,7 +47,7 @@
 			<tr>
 				<th>Num</th><th>Title</th><th>Writer</th><th>Date</th><th>Hit</th>
 				<c:if test="${board eq 'qna'}">
-					<th>Ref</th><th>Step</th><th>Depth</th>
+					<th>Ref</th><th>Step</th><th>Depth</th><th></th>
 				</c:if>
 			</tr>
 		</thead>
@@ -62,6 +62,7 @@
 				<td>${list.hit}</td>
 				<c:if test="${board eq 'qna'}">
 					<td>${list.ref}</td><td>${list.step}</td><td>${list.depth}</td>
+					<td><a href="./reply">답글달기</a></td>
 				</c:if>	
 			</tr>
 			</c:forEach>

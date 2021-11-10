@@ -11,6 +11,15 @@
 		values (#{num}, #{title}, #{contents}, #{writer}, 0, sysdate(), 0, 0, 0)
 	</insert>
 	
+	<update id="setRefUpdate" parameterType="BoardVO">
+		UPDATE
+			qna
+		SET
+			ref = #{num}
+		WHERE
+			num = #{num}
+	</update>
+	
 	<!-- Update 글수정 -->
 	<update id="setUpdate" parameterType="BoardVO">
 		UPDATE
@@ -73,7 +82,7 @@
 		LIKE CONCAT('%', #{search}, '%')
 		</if>
 		ORDER BY
-			num DESC
+			ref desc, step asc
 		LIMIT
 			#{startRow}, #{perPage}
 	</select>

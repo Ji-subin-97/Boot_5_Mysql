@@ -6,7 +6,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface MemberRepository {
-
+	
+	//아이디 중복 확인
+	public MemberVO getSelect(MemberVO memberVO) throws Exception;
+	
 	//회원가입
 	public int setInsert(MemberVO memberVO) throws Exception;
 	
